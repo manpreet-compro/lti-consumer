@@ -41,6 +41,7 @@
             <% ltiFields.forEach(function(field) { %>
                 <div class="input-field"><label><%= field.key %></label> <input type="text" value=<%= field.value %> <%= field.readonly ? "readonly" : "" %>></div>
             <% }); %>
+            <a id="link-launch" href="/ltilaunch" target="_blank" style="display:none"></a>
             <button id="lti-request" class="btn-post btn btn-secondary">Post to Tool Provider</button>
         </div>
         <script>
@@ -58,7 +59,8 @@
             }
             const handleButtonClick = ()=>{
                 const launchURL = generateLaunchURL();
-                Object.assign(document.createElement('a'), { target: '_blank', href: launchURL}).click();
+                document.getElementById("link-launch").setAttribute("href",launchURL);
+                document.getElementById("link-launch").click();
             }
             
             document.getElementById("lti-request").addEventListener("click", handleButtonClick)
