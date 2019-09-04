@@ -12,9 +12,13 @@ exports.renderHomePage = (req, res)=>{
 }
 
 exports.handleLtiLaunch = (req,res)=>{
-    let {lti_message_type, lti_version, resource_link_id, oauth_consumer_key, oauth_signature_method, oauth_version} = req.query; //Shoould filter later
-    let formFields = {lti_message_type, lti_version, resource_link_id, oauth_consumer_key, oauth_signature_method, oauth_version};
+    let formFields = Object.assign({},req.query);
 
+    //remove additional fields
+    delete formFields.tool_provider_url;
+    delete formFields.tool_secret;
+
+    //add computed fields
     formFields.oauth_timestamp = Math.round(Date.now() / 1000);
     formFields.oauth_nonce = nonce();
 

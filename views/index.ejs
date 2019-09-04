@@ -8,12 +8,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     
         <base href="/">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous" />
         <style>
-            body{
-                font-family: Arial, Helvetica, sans-serif;
-            }
             .input-field{
-                margin-top: 10px;
+                margin-top: 5px;
             }
             .input-field label{
                 width: 200px;
@@ -27,8 +25,8 @@
                 width: 300px;
             }
 
-            .input-field input:read-only{
-                background-color: lightgray;
+            .sub-heading{
+                margin-bottom: 25px;
             }
 
             .btn-post{
@@ -37,12 +35,13 @@
         </style>
     </head>
     <body>
-        <h1>LTI 1.1 Tool Consumer Fields</h1>
-        <div class="container"></div>
+        <div class="container">
+            <h1 class="heading">LTI 1.1 POC</h1>
+            <h2 class="sub-heading">Platform (Consumer) Implementation</h2>
             <% ltiFields.forEach(function(field) { %>
                 <div class="input-field"><label><%= field.key %></label> <input type="text" value=<%= field.value %> <%= field.readonly ? "readonly" : "" %>></div>
             <% }); %>
-            <button id="lti-request" class="btn-post">Post to Tool Provider</button>
+            <button id="lti-request" class="btn-post btn btn-secondary">Post to Tool Provider</button>
         </div>
         <script>
             const generateLaunchURL = ()=>{

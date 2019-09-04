@@ -20,16 +20,12 @@
         "readonly": true
     },
     {
-        "key": "tool_provider_url",
-        "value":"http://localhost:5000"
+        "key": "oauth_consumer_key",
+        "value":"consumer"
     },
     {
         "key": "tool_secret",
-        "value":"shared_secret"
-    },
-    {
-        "key": "oauth_consumer_key",
-        "value":"shared_key"
+        "value":"secret"
     },
     {
         "key": "resource_link_id",
@@ -38,5 +34,13 @@
     {
         "key": "context_id",
         "value":"8213060-006f-27b2066ac545"
+    },
+    {
+        "key": "tool_provider_url",
+        "value":"http://lti-tool.herokuapp.com/lti"
+    },
+    {
+        "key": "lis_outcome_service_url",
+        "value":"http://lti-consumer.herokuapp.com/outcome"
     }
 ]
