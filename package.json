@@ -1,0 +1,23 @@
+{
+  "name": "lti-consumer",
+  "version": "1.0.0",
+  "description": "A node js implementation of LTI 1.1 tool consumer",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lti",
+    "nodejs",
+    "tool-consumer"
+  ],
+  "author": "Manpreet Singh",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "nonce": "^1.0.4",
+    "oauth-sign": "^0.9.0"
+  }
+}

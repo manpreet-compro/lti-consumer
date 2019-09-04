@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title><%= title %></title>
+        
+        <meta charset="utf-8">
+        <meta name="description" content="LTI 1.1 Tool consumer ">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <base href="/">
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .input-field{
+                margin-top: 10px;
+            }
+            .input-field label{
+                width: 200px;
+                display: inline-block;
+            }
+            .input-field label::after{
+                content: ":";
+            }
+
+            .input-field input{
+                width: 300px;
+            }
+
+            .input-field input:read-only{
+                background-color: lightgray;
+            }
+
+            .btn-post{
+                margin-top: 25px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>LTI 1.1 Tool Consumer Fields</h1>
+        <div class="container"></div>
+            <% ltiFields.forEach(function(field) { %>
+                <div class="input-field"><label><%= field.key %></label> <input type="text" value=<%= field.value %> <%= field.readonly ? "readonly" : "" %>></div>
+            <% }); %>
+            <button id="lti-request" class="btn-post">Post to Tool Provider</button>
+        </div>
+        <script>
+            const generateLaunchURL = ()=>{
+                let launchURL = "/ltilaunch?"
+                let inputFields = document.getElementsByClassName("input-field");
+
+                Array.from(inputFields).forEach((field) => {
+                    let key = encodeURIComponent(field.querySelector('label').innerText);
+                    let value = encodeURIComponent(field.querySelector('input').value);
+                    launchURL = `${launchURL}${key}=${value}&`
+                });
+                console.log(launchURL);
+                return launchURL;
+            }
+            const handleButtonClick = ()=>{
+                const launchURL = generateLaunchURL();
+                Object.assign(document.createElement('a'), { target: '_blank', href: launchURL}).click();
+            }
+            
+            document.getElementById("lti-request").addEventListener("click", handleButtonClick)
+        </script>
+    </body>
+</html>

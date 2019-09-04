@@ -1,0 +1,46 @@
+[
+    {
+        "key": "lti_message_type",
+        "value":"basic-lti-launch-request",
+        "readonly": true
+    },
+    {
+        "key": "lti_version",
+        "value":"LTI-1p0",
+        "readonly": true
+    },
+    {
+        "key": "oauth_version",
+        "value":"1.0",
+        "readonly": true
+    },
+    {
+        "key": "oauth_signature_method",
+        "value":"HMAC-SHA1",
+        "readonly": true
+    },
+    {
+        "key": "tool_provider_url",
+        "value":"http://localhost:5000"
+    },
+    {
+        "key": "tool_secret",
+        "value":"shared_secret"
+    },
+    {
+        "key": "oauth_consumer_key",
+        "value":"shared_key"
+    },
+    {
+        "key": "resource_link_id",
+        "value":"88391-e1919-bb3456"
+    },
+    {
+        "key": "context_id",
+        "value":"8213060-006f-27b2066ac545"
+    },
+    {
+        "key": "user_id",
+        "value":"0ae836b9-7fc9-4060-006f-27b2066ac545"
+    }
+]
